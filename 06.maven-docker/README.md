@@ -86,6 +86,44 @@ Build Success
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/c4d59492-c188-4d53-8cf0-269e9c386a4d)
 
+Install Gradle Plugins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c429af11-85e1-44e7-a2a6-8a134920081f)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/79fc4957-8d0d-4883-827e-ecc12fd78e2b)
+
+Click on Add Gradle in the Manage Jenkins > Tools
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/17b353db-8da2-4ec4-a5bf-d764deac6b97)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a57e780e-b53f-4041-be76-19a00c08c1da)
+
+Select The Pipeline
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8f67a476-9d56-4a4c-8994-68440610c0ec)
+
+Select Github + Maven Pipeline
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e2aac68e-f595-405b-9f17-6d18f66dd8e5)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5b3a15e4-2ea7-42c5-b330-c6b5c024fbc7)
+
+Change the Maven Home name and the Git Hub Repo details
+
+Apply + Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/89e44358-880c-4583-a904-b2d2c9d01b74)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
