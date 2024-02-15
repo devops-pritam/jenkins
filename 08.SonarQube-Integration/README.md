@@ -337,6 +337,196 @@ Detailed Report
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/90cff650-c33d-456a-b43e-61434c65e881)
 
+Now, Integrate SOnarqube with Jenkins
+
+Go To SonarQube GUI and add a Project
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d0aecca1-b031-4286-8360-7840a7e68fce)
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/962bd996-e318-4ff6-91e9-7e1813502bf4)
+
+Lets Choose The Manual Way Integration
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ac76cb76-2ebc-4b36-9214-15fe257e4ce8)
+
+Click on Setup
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/476a4cc3-12de-4ab6-9bd4-20e0108c425a)
+Select Locally
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e77c6765-cfd5-4e16-a962-baf61756f326)
+Generate the Token
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/fea0c73a-95cc-4a75-98e8-c8c9fde9577b)
+
+Token Is Created
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a7018971-7195-45ac-95b8-f36fa086b74f)
+
+sqp_fd9d74bc25ca30c672c88c4b4794b2bbd4ad429c 
+
+This is the token which we are going to use in Jenkins
+
+
+
+Lets go to Jenkins server and install the Plugin
+
+Install this Plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/304ac51b-a7de-4694-ade2-6cacb2d303fb)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/fabc96af-5ddb-408a-bace-18aa8e6b416f)
+
+Now, lets configure The token 
+
+Go to Manage Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0bc48712-ba11-4ddb-85e7-9830136ff424)
+
+Go to Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4bc28f96-b3ee-46ac-a1f7-39011707f06c)
+
+Go Inside System
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6391de2e-2fcb-4496-87ed-3281ec4c5b5c)
+
+Then Global Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3c761962-91d4-47d4-a365-d30e50dc68f0)
+
+Click on Add Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/74c1eb15-994d-4924-881d-561bfe1be4a7)
+
+As we have SonarQube token we need to select the Secret Text
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/041f74b9-e0ac-4fc1-aa4e-29bfe87567f5)
+
+Under the Secret paste the Token
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/652c4220-d327-46e1-8f25-158482ec8c1f)
+
+Then Create the Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/42fa2d14-42f8-488f-9561-7205ef6d7da0)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8fd8d5c5-ab17-4c2b-9c6b-4d467eb9e39d)
+
+Credential is Added
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b31308b0-3c24-4579-b17e-2870b257c4e6)
+
+Now, Click on Manage Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/dd93b8b8-6a0f-4878-a735-e44f93266910)
+
+Click on System
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f76f4e3e-a52c-4d72-a587-4a4c6cf06114)
+
+Here we have SonarQube Server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/20d24ad9-3627-48e3-b473-a3cfc5efe549)
+
+Check the Checkbox of SonarQube Environment Variable
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/fe06df29-8d7c-473b-830b-718997b4ed30)
+
+Now, Clcik on Add SonarQube
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a576e372-7bed-4a9c-97ab-f84675f9c803)
+
+Now here add the token, and the URL
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/32c10387-c7b5-4b04-a7b1-baa34a73efde)
+
+Apply and Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d95aa84b-2bb0-4028-b288-2facfe87a5aa)
+
+Go to Manage Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8bc48fd4-b3cc-4a9b-ac4a-a0f07a1f6046)
+
+Click on Tools
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2ce215cd-6c4c-45cc-9337-7a26903a4d90)
+
+Select SonarQube Scanner Installation
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/46cf9c9e-d0b6-44c1-9c1a-11e9339bb56b)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c4398506-21d6-4799-aafb-261a2f735468)
+
+Apply and Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/03316210-d03f-4a37-9ca4-9fe2ba0fe4cb)
+
+Now create a New Item
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5dc36819-9c7c-447e-b011-738953cb4e27)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4f66c137-a021-4344-be5d-567453ed3271)
+
+Setup the maven Like this way
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/712d886c-fabd-4345-979b-205f98abe76f)
+
+
+As we have setup maven like this
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/cf19c3c2-737a-48f9-abe9-73182e0d3abe)
+
+Maven home is /root/maven
+
+This is the Code I am using here for Java Login Application
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4a9ab563-b667-477a-97f0-c23ef734e63e)
+
+Next to build the code
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/9fcee375-12bb-45ee-a945-738e0f9c57b0)
+
+
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8c165c16-1934-411b-b157-4268e1b65949)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/fff4fa32-14b0-4a04-9563-4d453c104cfe)
+
+
+
+
+
+
+
+
+
 
 
 
