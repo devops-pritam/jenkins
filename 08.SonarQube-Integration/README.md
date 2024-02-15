@@ -196,6 +196,189 @@ We can also Connect out SCM here (From Github, Gitlab or BitBucket)
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/52c0e8cf-5847-462a-bf13-6855dd423369)
 
+Lets do it Manually
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/12965b2d-2595-492c-99ff-0bbe6a14f60a)
+
+Give some project name with some project key
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7cf24cd6-6d42-4f96-ad82-1aa5726ae61b)
+
+Click on Set Up
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8d0da58b-7c6c-4136-8fb9-cb1233c0dcba)
+
+Click on Test 
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/cdb694c8-a124-40cc-b1b6-5bea6eae653a)
+
+And generate the Token
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8c84b667-a168-41f2-97d5-7dec4a0b21a4)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/df6172fa-9ee9-40eb-951d-359c13ff5e23)
+
+Copy this token
+
+We can give this token for authentication
+
+sqp_79b9fcec92e28e796c08211f7f451ec53b8056eb
+
+If we click in continue, it will give the options
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e19f7ee5-d6e8-4897-a66a-2951b7c052af)
+
+For example, If we need to work with maven then choose maven and it will show the way to authenticate
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6b98ce3e-ab0d-41ba-abc5-68b9cf9a2d64)
+
+here we can see the rules, as it support different languages, it has different rules
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b04282b9-70f0-4a24-936f-72c0cd4b02bd)
+
+These are the languages and these are the rules depending on the Languages
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b852c394-b496-4ddc-baea-d41a83f6be55)
+
+These rules are being used to Crete the Quality Profile, Quality profile is nothing but the collection of rules
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2e6f8ece-dbcc-4453-a551-2cdc2013987a)
+
+Lets create the profile
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b0893427-0f1d-4496-bf0b-108fa325fb6d)
+
+Lets add these details
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ad48970d-f7f0-4520-86c3-863bc5ccb629)
+
+Lets Create it
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/541547a7-9474-417b-b8a5-04ef57db4de7)
+
+At this moment we have these rules, some of the are active and some are inactive
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7cf0fae4-7aa7-48e9-bd8d-a67f39143e47)
+
+If we need more Active Rule then
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6f04996b-1161-4ede-b205-bff936929af2)
+
+Clickon Activate more and then Bulk option
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/685dd023-099b-4491-bf33-99935f0d5792)
+
+Clickon Activate in Maven Profile
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b3eee8f9-9e79-4266-b299-0ed2461ac3e1)
+
+Click oN Apply
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/369dfb4e-2bd3-46fc-a964-e23f8ceb92c7)
+
+Some Rules are changed but most of them Activated
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/65fbfc46-7937-432a-9194-95805aea9ea5)
+
+If we need to set this as the Default Profile for java then we can make it Default Profile
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/03117942-2012-4517-af13-e0b08d47b58a)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/faf425d1-1a8a-4f26-8e42-413e428192bd)
+
+So next time onwards, if we are going to do analysis for any Java Project it will be our Default Profile
+
+In The Quality Gate, we can see the Threshould Value, Or the checkpoint to pass or fail the Development Codes
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d015148f-4b2c-4b50-9b17-2bdb16d7f2d7)
+
+We can create our Own Quality Gateway
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f692824f-6d47-4205-81e0-82adc9466543)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/9279aae7-6a84-43bc-81e6-ecd0463da7a7)
+
+Here we can Edit the Conditions
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a068be5e-2451-4838-9910-62b2daaaf21a)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1d00645f-2de2-4758-8c20-24eb4627026b)
+
+Code Coverage Means What % of code is covered by Test Cases 
+We can Make it as Default
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/49db27a4-d93c-46e4-b566-bd5a95fe7f72)
+
+Now, Create a New Server and setup Maven
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/9a0f28b3-70d9-42f3-b0db-ebc6a73ef491)
+
+Lets Clone a Github Repo
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/09e91d94-560c-4dd0-b044-fd4f84e77de0)
+
+Now we need to run this code
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ec864d24-6446-4d83-9a31-55db27f6ede4)
+
+Because , we need to setup sonarscanner where our development code is present
+
+Lets go to the Project folder and execute this command
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/47f50838-0b76-4f48-8fef-e7496133d8c1)
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/010f7d4a-baa3-46f4-9d07-3aeea1f777e9)
+
+This is a big project so use a small project 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/646e1619-6930-4b8a-8fed-f8a16771e8c9)
+
+Run the Maven commands
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c712aeb7-7b93-49eb-989a-fb3492be1891)
+
+Build Success
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d2ddd873-0c08-4712-b6d9-f4134fb91de6)
+
+Lets Check the report
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/cafcd356-6f69-4151-aec2-5ffd66a82c1a)
+
+Detailed Report
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/90cff650-c33d-456a-b43e-61434c65e881)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
