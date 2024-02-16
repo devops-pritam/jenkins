@@ -487,6 +487,66 @@ Next to build the code
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/8c165c16-1934-411b-b157-4268e1b65949)
 
+Here we are giving the Name of sonaqube system variable 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f77a5be8-9383-4271-84ea-87939604c35d)
+
+So the script looks like this
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/dadfb3d5-60f8-4a7e-b95c-25e7453d2e9d)
+
+pipeline{
+    agent any
+    tools { 
+      maven 'M2_HOME' 
+      jdk 'JAVA_HOME' 
+    }
+    environment {
+        PATH = "$PATH:/root/maven/bin"
+    }
+    stages{
+       stage('GetCode'){
+            steps{
+                git 'https://github.com/ravdy/java-app.git'
+            }
+         }        
+       stage('Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+         }
+        stage('SonarQube analysis') {
+//    def scannerHome = tool 'SonarScanner 4.0';
+        steps{
+        withSonarQubeEnv('sonarqube-test') { 
+        // If you have configured more than one global server connection, you can specify its name
+//      sh "${scannerHome}/bin/sonar-scanner"
+        sh "mvn sonar:sonar"
+    }
+        }
+        }
+       
+    }
+}
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4205bb50-3b4c-4b36-bdd5-ad577362cad8)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c9491ec8-038f-4755-9b16-ef4ff1352205)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f9e0c4ed-8f6c-4063-919c-eaad153fd679)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -518,6 +578,8 @@ Next to build the code
 
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/fff4fa32-14b0-4a04-9563-4d453c104cfe)
+
+
 
 
 
