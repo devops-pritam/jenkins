@@ -816,6 +816,18 @@ Stage 3 Completed
 
 Now Stage 4 : Uploading Artifact in Nexus Repository
 
+for that lets go to Manage Jenkins > Plugins
+
+Nexus Artifact Uploader is the plugin we are going to install
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/fcd456ed-245e-46c6-832a-ca7fb81a7ef3)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/974e8300-41a0-4ba9-846b-41f5211e2e72)
+
+
+
+
+
 
 
 
