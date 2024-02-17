@@ -981,6 +981,269 @@ Stage 4 Is Completed
 
 Stage 5 : Deploy to Tomcat Server
 
+Our Tomcat Server Is Up And Running
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5942c04e-8156-4b55-b4b8-bb355f4dcc9b)
+
+Now we need to copy .war file from Jenkins to the Tomcat server. 
+
+For this we need to install one plugin : ssh-agent , the role of this agent is to connect 1 server with another server 
+
+MAnage Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/91da0202-8d08-4bb9-b66c-d8bb67ac13f5)
+
+Plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c21f68bb-caf3-4cd4-b18b-55877b5172c5)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2af94c9f-3b1d-472d-b14a-0af9f70442f6)
+
+Install
+
+Successful
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/842acff0-1c1c-497d-89d8-98177584b9dc)
+
+Now Edit the Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/063e9972-f872-44a7-99d8-fe43b673c053)
+
+Click on Pipeline Syntax
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1b52a95e-a41e-4ce9-817c-1a7b02df2e24)
+
+Select SSH Agent
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0bd64ea3-c435-48f9-acf1-c013fad9f0e8)
+
+Click On Add
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/57dd360d-f358-4602-b3b3-f4aa8aa25247)
+
+Select Username and Key
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6180fb07-71b2-4896-b144-64656c7dcd78)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/90446bf9-849b-4232-bf8b-cef1c8014d76)
+
+User Name
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/62e66df5-b13f-4e44-8e21-9ab7e90b0de6)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/89dc9af6-0862-4071-8d5a-9ab36b8ab508)
+
+Browse the Private Key
+
+Now copy the .pem file and add it here
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/31422665-067b-4249-af3a-08a72e27db76)
+
+Click on Add
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c0455f82-4a67-4d42-964a-202969695d38)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4debb79c-eb6a-4ad8-bad4-48fe5a0128e4)
+
+Click on Generate Pipeline Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1f31d121-7235-4d9d-9711-fa746e71fea3)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f142e426-a49a-4c7d-a031-8c2621249cdb)
+
+Now, In jenkins machine the .war file is being created under : target/onlinebookstore.war
+
+And in Tomcat server we need to copy the Artifact under webapps directory
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1613d3a6-4b78-4196-9bae-a6dca1cccd81)
+
+So the destination is : /home/ec2-user/tomcat/webapps
+
+sshagent(['tomcat-server']) {
+    // some block
+}
+
+We need to rewite this as 
+
+sshagent(['tomcat-server']) {
+    sh 'scp -o StrictHostKeyChecking=no target/onlinebookstore.war
+    ec2-user@3.111.51.71:/home/ec2-user/tomcat/webapps'
+}
+
+3.111.51.71 : Is the Public IP of the Tomcat Server
+
+
+So Rewrite the Script like this 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0f24d897-e2cc-4881-a938-f2413a5d7e29)
+
+Full COde 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2731f2bb-853e-422c-a362-e5cfbc097edb)
+
+node{
+    
+    stage('Clone the Repo'){
+        
+        git 'https://github.com/devops-pritam/onlinebookstore.git'
+    }
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    stage('Code Review'){
+        
+        withSonarQubeEnv('sonar-server'){
+        
+            def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+            def mavenCMD = "${mavenHome}/bin/mvn"
+            sh "${mavenCMD} sonar:sonar"
+        }
+        
+    }
+    
+    stage('Upload Artifactory'){
+        
+        nexusArtifactUploader artifacts: [[artifactId: 'onlinebookstore', classifier: '', file: 'target/onlinebookstore.war', type: 'war']], credentialsId: 'nexus-user', groupId: 'onlinebookstore', nexusUrl: '3.111.188.133:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'pritam-artifact-repo', version: '0.0.1-SNAPSHOT'
+    }
+    
+    stage('Deploy'){
+        
+       sshagent(['tomcat-server']) {
+            sh 'scp -o StrictHostKeyChecking=no target/onlinebookstore.war ec2-user@3.111.51.71:/home/ec2-user/tomcat/webapps'
+        }
+    }
+}
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b032795d-df77-4573-9169-62bbb8c3c5c4)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c042189f-0184-4bef-b918-b80a51b7e91f)
+
+These are the 5 Stages
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/087e3d95-f53a-421a-bd1c-963e06cbc5d0)
+
+If there are some issue we can use deploy to container plugin for the same
+
+
+
+TEST
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e43b3b79-7e7b-4e5b-871e-7553d00aa321)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6c3db9b9-f76e-41a2-bda1-5f7a97e30ac1)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3e171e66-3dcc-414d-baf8-c874a04084bd)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b4ab7a6c-d439-497e-9886-e769d92d2ad0)
+
+Full Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3456442b-3555-45d5-823f-55480b635766)
+
+node{
+    
+    stage('Clone the Repo'){
+        
+        git 'https://github.com/devops-pritam/onlinebookstore.git'
+    }
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    stage('Code Review'){
+        
+        withSonarQubeEnv('sonar-server'){
+        
+            def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+            def mavenCMD = "${mavenHome}/bin/mvn"
+            sh "${mavenCMD} sonar:sonar"
+        }
+        
+    }
+    
+    stage('Upload Artifactory'){
+        
+        nexusArtifactUploader artifacts: [[artifactId: 'onlinebookstore', classifier: '', file: 'target/onlinebookstore.war', type: 'war']], credentialsId: 'nexus-user', groupId: 'onlinebookstore', nexusUrl: '3.111.188.133:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'pritam-artifact-repo', version: '0.0.1-SNAPSHOT'
+    }
+    
+    stage('Deploy'){
+        
+      deploy adapters: [tomcat9(credentialsId: 'tomcat-admin', path: '', url: 'http://3.111.51.71:8090/')], contextPath: null, war: '**/*.war'
+    }
+}
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/607a8202-d0c4-41c3-8f8d-29b002355c2f)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/20c9583d-6919-4bd7-8baf-43e8163614bd)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d0b2f7ee-6c2c-432d-bfff-10d54f6f761e)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/bafbd664-9398-4cf5-8878-a2168e65905c)
+
+
+So for every Build the Artifact is Storing in the Nexus Repo
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a97718a4-42d0-4bf8-ad1e-e6af5964706b)
+
+And The code review is also done for every Build
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c7c720de-3a17-4b93-9a1f-28ad2702f223)
+
+
+
+
+
+So All the 5 Stages are done :) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
