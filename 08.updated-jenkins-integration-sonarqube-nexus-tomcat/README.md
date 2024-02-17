@@ -458,7 +458,450 @@ Lets Navigate to the conf directory
 
  ![image](https://github.com/devops-pritam/jenkins/assets/132892500/de9749b0-743e-4798-a54c-641929ee5ead)
 
- Lets see in which port SOnarQube is running 
+Now in the browser use PUBLIC_IP:9000 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d34774ee-ba25-411a-8b90-9b35747fd3a0)
+
+the default id and password is admin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/39cf6ac5-1ac6-4abc-8ced-3a1b3eea94af)
+
+Change the Password
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/85a6ad38-b423-4dd2-a56f-ae39b4ff2968)
+
+Now, we need to create a Jenkins Server
+
+Launch a new Server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3508a057-3c68-43a2-9cb0-a1e127016007)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2bb90742-bae7-4595-8d8c-23940ec8f801)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/80a7c39a-6306-4243-addd-debaeda8b50d)
+
+Connect with this server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f4d06201-94c0-4e66-be11-4be543d57887)
+
+Search with Jenkins Download
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/db5b324f-5652-4eb7-96e4-b17498dcdc88)
+
+Go Inside the Jenkins Official Page
+
+Select the LST version of Redhat OS
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d50874bf-3a4d-4e77-ae63-1605cd3cdf9c)
+
+Run these 2 commands
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a6ec839a-96d9-404a-9d88-96f7f9b0d6fb)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d31185c5-3e0c-4017-a535-f8462a6c931b)
+
+Install JAVA
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d11857b8-4e2d-4890-8549-8cc8dddddd6c)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d239f532-1ab6-4ee0-ada0-7b359e29e511)
+
+Set the Java Home PAth :
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6b3dc395-ae28-497d-a2be-513bb55ad7c0)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ee9090d4-c842-466f-8d42-2c0a29ee608b)
+
+Install Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a65866db-b9db-4a93-8ff4-8aaa40b37bfa)
+
+Start Jenkins 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/42930651-15e4-4c3c-abac-28f97c5cfd75)
+
+Check the status
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8a87c790-1c4d-4903-b25c-420dbaff0827)
+
+Use the Public_IP:8080
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/76cbc5ec-d5c3-4d20-8e8e-a1154e8d1d30)
+
+Get the password
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/943a97e3-de73-4ed1-8ce3-e171256ce5aa)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a0a7ab98-487c-499b-8a35-7ebccff6068f)
+
+Use the initial Login Password
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b62a80c6-e8da-4124-a92d-eced1515a286)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/599e7751-a212-4dcf-aecf-85c4ea9957b1)
+
+Go to manage Jenkins > Tools 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c6e3212f-e705-420d-b0ba-ca998f0167cb)
+
+Add Maven Installation
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5b385435-54d9-46c6-ba77-7dc64b3f0098)
+
+Maven we did not install in our Jenkins Machine, We just configure it under global tool configuration
+
+Then Setup the Java 
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2f821d1f-7b91-4116-9583-05eaf63f1bbe)
+
+Apply and Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/34d7abd0-2d7d-4afe-ba0f-657c9471b389)
+
+Install git Plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3d67f723-cdbb-4492-85e9-461371a52dd6)
+
+Install Pipeline plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a306a148-eed7-4cc0-895a-463e8f98bd7e)
+
+Install stage view plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/dece61b5-e20b-4aa3-b784-5af3b43d0d45)
+
+Now, create a New Item (New Pipeline)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0882b286-0248-497d-8004-6a2342e8cec0)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f9394833-50e0-41de-982b-4fe1564421a2)
+
+Stage 1 : Clone Github Repo 
+
+Start the Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7f1155d6-9e2e-4b27-9311-64f36bc34f4b)
+
+Click on Pipeline Syntax
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/abebee65-0849-4db9-a676-26d376b0ef69)
+
+Select the Git
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/864e6acf-ed09-4d4d-8c4b-aef0883d7e8f)
+
+Before that install git in the jenkins server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/77c81724-ea07-45da-8834-860cfb050136)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8a72ccc5-472b-48c1-a6f5-8d7289dbec74)
+
+Now click on Generate Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ceec943f-1e0e-41d5-b8d6-4390f8aa2803)
+
+Copy this line
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7b749ff8-3eec-4a3f-882b-24771baaa1f4)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2035e89c-3ce9-449e-af60-d980c73800df)
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/14b6ea3d-52a2-418c-9994-732f85225d0c)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e6e2f2bb-567d-487a-84d6-86d0ebe80d6f)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/397a3e58-8376-4523-8e80-e39d1ee0a54b)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/15b4a4d7-3535-46ec-9fb5-714b55180431)
+
+Stage 1 : Clone Github Repo DONE
+
+Stage 2 : Build the Job by Maven
+
+Here we need to create a New Stage and here we need to compile, build and package our Project
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ce2a3013-b1c2-4349-bfdf-5505313d5025)
+
+Now, add the Maven stage like this 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0629bac7-8558-4872-a6d3-b6b26abefc62)
+
+
+Script :
+
+node{
+    
+    stage('Clone the Repo'){
+        
+        git 'https://github.com/devops-pritam/onlinebookstore.git'
+    }
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    
+    
+}
+
+Apply Save
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/bba8254e-67d4-419e-916e-16b7c4e2a4a7)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/82a988ca-c845-4c6b-a886-4aefc9dbe0ca)
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/893d7c35-74a6-450a-a646-f47e7db810e2)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e6f06811-d187-4c5c-b1f4-7e8192afb694)
+
+
+Stage 2 : DONE
+
+Stage 3 : Code Review by SonarQube
+
+Now, we need to integrate Jenkins with SonarQube
+
+This is Our SonarQube Server which is running
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d65dce32-40fb-410b-aaa5-6268be683c76)
+
+Go to Manage Jenkins
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2c0d9fb2-5c76-4ea2-b8de-7828b781ecc0)
+
+Go to Plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c7f5139b-0ba1-4441-a139-f590fa313640)
+
+Install this Plugin
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/aa55039d-6ba8-4cfc-b2d0-d3cd2236a9c6)
+
+Once it is successfull, then we need to configure sonarQube with Jenkins
+
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7134cbfb-b072-4985-a759-0a0152866112)
+
+Now, We need to generate the SOnar Token also,
+
+For That 
+
+Go to My Account
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/e002293c-e023-43d7-a4f0-1aa7395e2445)
+
+Go To Security
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3c7dc45e-43ae-4754-913c-697fa37ba226)
+
+Generate The Token
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/99d1fe43-9a12-45d3-be2d-955573134fdc)
+
+Copy this Token
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/28657ea0-7c11-4206-b697-c68285602676)
+
+squ_52d89232667c40459331ad473bbbe69a3c63a148
+
+Now, Manage Jenkins > Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/29b3adca-d856-4ed8-8a3d-61a6971f6d5f)
+
+Go to System
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f4763dfa-cda6-480d-a253-181040d1d05f)
+
+Global Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/103d4921-0bf5-47fc-bb67-64c09c392639)
+
+Add Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d4927b5c-ecb4-4ff0-8971-40eb9d657819)
+
+Select Secret Text
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2a3107be-40f9-4bbb-b190-40cb00d99e1c)
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/cddacf02-4939-4cfd-adc0-f498d507693d)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b0f5513d-e5cb-453a-879e-58fccd2c63a3)
+
+Manage Jenkins > System
+
+SonarQube Server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/da945db9-b2a3-4c06-ab0b-6f14cda865b5)
+
+Click on Add SOnarQube
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5bc320c9-f18d-4063-905d-4ab08faf2d03)
+
+Add the sonar server Like this 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/71b1877f-1e9b-4b66-a474-4f0bc75d3b9a)
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b72b28f2-f058-4963-8c45-c71d97e15b3f)
+
+Now Configure the Job again
+
+Add a new stage for Code Review
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5700f43f-23d3-40d6-8425-ba9cb8150682)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/315be875-f12f-4b69-8d76-c8bbf1b1ebde)
+
+
+Full Code :
+
+node{
+    
+    stage('Clone the Repo'){
+        
+        git 'https://github.com/devops-pritam/onlinebookstore.git'
+    }
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    stage('Code Review'){
+        
+        withSonarQubeEnv('sonar-server'){
+        
+            def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+            def mavenCMD = "${mavenHome}/bin/mvn"
+            sh "${mavenCMD} sonar:sonar"
+        }
+        
+    }
+    
+}
+
+Apply Save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4193b898-69d4-411c-90e5-b1c6ad38de45)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/9d399a6c-b358-4ceb-9c42-98fe8cb9fe02)
+
+Build Success 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6832fb52-5bb5-47df-b9f7-63f1072ce888)
+
+Now, if we see the SonarQube Project we will see 1 project is there 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1950e5da-dfb4-4158-89fa-dca583c29acf)
+
+Stage 3 Completed
+
+Now Stage 4 : Uploading Artifact in Nexus Repository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
