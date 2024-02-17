@@ -1,3 +1,11 @@
+In This project we are going to create a Jenkins Pipeline which will do these 5 stages
+
+1) Clone the Repository from Github
+2) Maven Build
+3) Code Review by SonarQube
+4) Upload Artifact to Nexus Repository
+5) Deploy Application in Tomcat Server
+
 Download Nexus
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/e58e30b7-49c2-4d37-a78e-8dd2f215de0f)
@@ -384,6 +392,93 @@ Lets Navigate to the conf directory
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/70a25efa-29cf-4f0e-84a1-d23447974e9b)
 
  So this TOMCAT setup is DONE
+
+ Launch An EC2 System
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/f93cef74-eaf3-4ec9-8dc8-014a8bc62e06)
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/565e459d-1c80-4534-b137-ce27998a034f)
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/3507b6b5-4ac3-4141-947b-b4a1babe3d5a)
+
+ Launch Instance
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/50cb96ed-b430-4848-89af-b30e9d824d7a)
+
+ Login as a Root User
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/a8835853-b84e-4b1e-bc4d-5ab057cccf9b)
+
+ Create a new user to handle SonarQube work
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/2b928801-b461-4bac-b55b-60f41cbfeb49)
+
+ Search with Download SonarQube
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/3737f9c0-90c5-4dc8-b9be-bd958aa43d8d)
+
+ Go to the Official Page
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/344dcc2e-7d5f-4081-a075-1df0fae3abbc)
+
+ Copy Link address of the Latest SonarQube
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/3730fa27-bcbc-49e6-99bd-713caef8417b)
+
+ Download the .zip package
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/67f09561-ae55-4d17-9332-a987f3401ade)
+
+ Unzip the Package
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/f89bdc51-b946-4a11-a60b-54fe0a83bf80)
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/fb349bed-ecd1-4760-82d7-30388ca85a46)
+
+ For simplicity change the name of the directory
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/378573c5-83ea-489e-b1bc-eea56f1e722f)
+
+ Now we need to install JAVA
+
+ Exit from the sonaradmin user, become the root user and install java
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/c300b1ce-e27c-4b08-a42a-7e7bf2bbb234)
+
+ Open JDK 17 is installed
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/ef3bfbaf-2b5c-430e-b1e3-f673a50bf7db)
+
+ now, login back with sonaradmin user and start sonarqube application
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/e61c1a7b-e378-4020-bd35-5ae594dacdfe)
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/594a1673-111e-4cba-b345-07cc94f8e644)
+
+ Check the status
+
+ ![image](https://github.com/devops-pritam/jenkins/assets/132892500/de9749b0-743e-4798-a54c-641929ee5ead)
+
+ Lets see in which port SOnarQube is running 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
