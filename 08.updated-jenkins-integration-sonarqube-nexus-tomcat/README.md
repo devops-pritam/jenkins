@@ -824,6 +824,196 @@ Nexus Artifact Uploader is the plugin we are going to install
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/974e8300-41a0-4ba9-846b-41f5211e2e72)
 
+Lets Configure the JOb
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c70795cd-42c4-41b8-bea3-ad810be57ab8)
+
+
+
+Click on Pipeline Syntax
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d61c255e-2f58-4a12-a564-c1d83e7a25e4)
+
+Select Nexus Artifactory Upload Step
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7a5704b8-edb3-40a5-91b3-8f50b434bcb4)
+
+We are using Nexux 3
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/94e99824-ee9b-464f-98b2-40ced93e31a8)
+
+So Select this 
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/96b280cf-d16b-4af4-be29-2dccfe49670e)
+
+Now set the Protocol as HTTP and url of the Nexus
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/f3d48ff7-abfe-43b0-891f-c37272bd79d3)
+
+
+Now add the Credentials of the Nexus Repo
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/88dc5321-71da-433e-b6b7-f7a5bf5ce81f)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c6bc9d58-5820-4435-a3b7-0cbe83544fd0)
+
+Then Add the user
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/38eb03d7-9015-4bd7-8c9a-d8847ede7c86)
+
+Now select this user
+
+Now, give the Group ID and Version as per the POM file
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/34853034-9b21-4f24-ba03-5fab3b690137)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/ca4bbe36-2d9d-4e7c-bfa1-3426d30d6545)
+
+Now Create A repo in NExus
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/8d7f3afa-7dce-4789-a66c-2d2144f6f0de)
+
+Select maven Hosted
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/6ea57ef8-e9be-4d7b-bf6a-907b2610cde3)
+
+Give Name
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/96396e88-0fae-4a34-a61f-4d6a5d1c0653)
+
+Version Policy Snapshot
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d484c827-4f95-4158-a0ac-ef9217ba538c)
+
+Deployment Policy Allow Redeploy
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/562b3898-e51d-4026-92e4-cb54eeb64c06)
+
+Create Repo
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/9a069f6e-d186-4d3f-83e9-00ab2dd23944)
+
+This is the URL of the REPO
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/0abd4182-5141-4886-9c1e-e5d5bb97d710)
+
+In the Jenkins Give the REPO NAme
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/157b5bed-8138-43e8-ba5d-a3f5fa842b2b)
+
+Now Add the Artifact
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d4cd4478-9c1a-4a6e-9cab-86d3afb998e4)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b5e08c81-67ed-490c-a442-af11968847a8)
+
+Artifact ID from POM file
+
+
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b8d08140-ddd4-4f1d-a20d-9b4c619af82f)
+
+
+Now Generate Pipeline Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3b57ad18-e41d-44b3-9a8f-8ef96b4978c1)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a078f5f3-5985-4d4b-b4d1-1bd02ca1f78a)
+
+Give the code under the Upload Artifactory Stage
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/1e9ff1ef-e2b3-4e31-a724-b90a8bd269e9)
+
+Full Script
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/54ef28e3-4e98-42fd-baaa-cee9d824384f)
+
+node{
+    
+    stage('Clone the Repo'){
+        
+        git 'https://github.com/devops-pritam/onlinebookstore.git'
+    }
+    
+    stage('Maven Build'){
+        def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+        sh "${mavenCMD} clean package"
+    }
+    
+    stage('Code Review'){
+        
+        withSonarQubeEnv('sonar-server'){
+        
+            def mavenHome = tool name: "Maven-3.9.6", type: "maven"
+            def mavenCMD = "${mavenHome}/bin/mvn"
+            sh "${mavenCMD} sonar:sonar"
+        }
+        
+    }
+    
+    stage('Upload Artifactory'){
+        
+        nexusArtifactUploader artifacts: [[artifactId: 'onlinebookstore', classifier: '', file: 'target/onlinebookstore.war', type: 'war']], credentialsId: 'nexus-user', groupId: 'onlinebookstore', nexusUrl: '3.111.188.133:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'pritam-artifact-repo', version: '0.0.1-SNAPSHOT'
+    }
+}
+
+
+Now Apply And Save
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/dec200ae-f0f2-4a53-8388-305ede79780d)
+
+Build Now
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/eafac555-af69-437f-a9ca-c5483f013557)
+
+
+
+Now, we are having 4 stages in our Project
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c7bd77c9-c2f2-4a9d-a2ae-15248d3869e9)
+
+This is the COnsole Output
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/89395d36-f169-46e5-9dfd-f20fb401b4c7)
+
+Now we can see the Artifact is Uploaded
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/c2ef6a5c-9cca-4e57-bd3e-14a19b32fef4)
+
+Stage 4 Is Completed
+
+Stage 5 : Deploy to Tomcat Server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
