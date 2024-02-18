@@ -95,6 +95,99 @@ We are going to use this slave as much as possible
 
 ![image](https://github.com/devops-pritam/jenkins/assets/132892500/50e4d311-9b39-401e-8930-4bae5f627bf2)
 
+Launch Agent via SSH
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/87be7f2e-ad32-4184-b844-ad14ff9f2901)
+
+Host is the Public IP of the server
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/a463bf75-a0ee-4aeb-bb27-0ad24fea6421)
+
+Add credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3aa12d8f-2e25-4f3c-95e4-9bc065cf5be6)
+
+Select SSH Username with Private Key
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b259190c-f12d-49e1-aa9d-d0e8f431cafc)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/afe4c1f3-d30c-4b43-92c1-0c18c96bf640)
+
+
+Click on Enter Directly and the ADD
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/40c23910-fc56-4699-b678-f8d456dd6f97)
+
+
+Add the .pem file here
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/4c5d0420-6f2a-4081-90ab-f931e7d31852)
+
+
+Click on ADD
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2057aefe-289d-4119-9283-8b3ed8e61361)
+
+Now, select the Credentials
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d579073a-28fc-438e-8627-ac555eb87b92)
+
+Select Non Verifying strategy
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/bb910cf0-d620-48b8-a18f-6df86e2764d2)
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/3e31f2b6-f5b7-4ea9-bd11-db6b215f3acb)
+
+
+clock on save
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/2958b091-3a6f-43db-a6c7-c1e7c8665dfb)
+
+Jenkins slave is added
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/cf345caf-1d49-4e09-aa45-aca3eb432929)
+
+Agent connected successfully
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/b0644185-c207-4fd9-8784-a33e34181406)
+
+Slave in sync
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/7fa27449-ecc7-46d2-bfa3-bdb2d1ab9b22)
+
+Create a pipeline job
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/17fb6f20-d817-45d6-a895-85f48a8c6ce3)
+
+Write the script like this
+
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/d96011a2-2feb-49a3-845f-9e232b2e1c8a)
+
+Apply Save 
+
+Build now
+
+Running this job in the slave 
+![image](https://github.com/devops-pritam/jenkins/assets/132892500/5ee6abdd-bebd-4a75-b8a2-ff2e180cc500)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
